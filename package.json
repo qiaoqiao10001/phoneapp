@@ -15,5 +15,6 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.4.5"
-  }
+  },
+  "homepage": "https://qiaoqiao10001.github.io/phoneapp"
 }
