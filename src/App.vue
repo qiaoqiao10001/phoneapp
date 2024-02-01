@@ -6,6 +6,7 @@ import HelloWorld from './components/HelloWorld.vue'
   <div>
     触发ci流程22222
     需要base设置为./
+    如果再次修改去部署呢？
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
