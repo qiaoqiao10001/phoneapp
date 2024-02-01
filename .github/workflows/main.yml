@@ -1,23 +1,19 @@
-name: GitHub Actions Build and Deploy Demo
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@main
-
-    - name: Install and Build 
-        run: |
-          npm install
-          npm run build
-
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: dist # The folder the action should deploy.
-
-
+image: node:16.5.0
+pages:
+  stage: deploy
+  cache:
+    key:
+      files:
+        - package-lock.json
+      prefix: npm
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run build
+    - cp -a dist/. public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
